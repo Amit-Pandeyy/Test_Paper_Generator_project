@@ -6,7 +6,6 @@ from questions.models import Question
 admin.site.register(User1,UserAdmin)
 admin.site.register(School)
 admin.site.register(Teacher)
-admin.site.register(Intern)
 
 
  

@@ -65,8 +65,8 @@ class Question(models.Model):
     subject = ChainedForeignKey(Subject, chained_field='standard',chained_model_field="standard",show_all=False,auto_choose=True,sort=True,related_name="Question",on_delete=models.CASCADE)
     chapter = ChainedForeignKey(Chapter, chained_field='subject',chained_model_field="subject",show_all=False,auto_choose=True,sort=True,related_name="Question",on_delete=models.CASCADE)
     topic  = ChainedForeignKey(Topic, chained_field='chapter',chained_model_field="chapter",show_all=False,auto_choose=True,sort=True,related_name="Question",on_delete=models.CASCADE)
-    status = models.CharField(max_length=500,default="No",blank=True,null=True)
-    for_quiz = models.BooleanField(default=False)
+    status = models.CharField(max_length=500,default="Yes",blank=True,null=True)
+    # for_quiz = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)

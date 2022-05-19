@@ -8,4 +8,3 @@ class RegisterAdmin(admin.ModelAdmin):
     list_display = ('user','made_on','amount', 'success',)
     list_filter = ('success',)
 admin.site.register(Transaction, RegisterAdmin)
-admin.site.register(Coupon)
