@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link href="{% static 'css/instructor-dashboard.css' %}" rel="stylesheet">
+<link href="{% static 'css/instructor-responsive.css' %}" rel="stylesheet">
+<div class="wrapper">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}" style="font-size: 22px; color: red;">
+        {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="sa4d25">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="st_title"><i class="uil uil-file-alt"></i>{{account.first_name}}'s Dashboard</h2>
+                </div>
+            </div>
+            <div class="row">
+             
+
+                <div class="col-lg-12 col-md-12">
+                    <div class="table-responsive mt-30">
+                        <table class="table ucp-table earning__table">
+                            <thead class="thead-s">
+                                <tr>
+                                    <th scope="col">Intern</th>
+                                    <th scope="col">Questions Solved</th>
+                                    <th scope="col">Questions Paid</th>
+                                    <th scope="col">Pending</th>
+                                    <th scope="col">Pay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for intern in interns %}
+                                <tr>
+                                    <td> <a href="{% url 'intern_details' intern.user.username  %}">{{intern.user.username}}</a> </td>
+                                    <td>{{intern.no_of_questions}}</td>
+                                    <td>{{intern.paid_for}}</td>
+                                    <td>{{intern.amount_left}}</td>
+                                    <td> <form method="POST">
+                                        {% csrf_token %}
+                                        <input value="{{intern.user_id }}" name="id" type="hidden" /> 
+                                        <input name="amount" placeholder="amount">
+                                        <button type="submit">Pay</button>
+                                    </form> </td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}

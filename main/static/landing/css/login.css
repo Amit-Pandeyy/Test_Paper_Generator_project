@@ -1,0 +1,45 @@
+.col-lg-6{
+  padding: 5% 10%;
+
+}
+.body{
+
+}
+.images{
+    text-align: center;
+}
+.laptop-image{
+  padding: 0 15%;
+  width: 80%;
+}
+
+.input{
+  display: block;
+  margin: 10% 0;
+  border-top: 0px;
+  padding: 5px;
+  border-left: 0px;
+  border-right: 0px;
+
+  width: 50%;
+}
+.mannual{
+  width: 20%;
+  border-radius: 100%;
+}
+.form{
+  border-width: 4px;
+  border-style: solid;
+  padding: 10% 0 15% 10%;
+  width: 80%;
+  border-radius: 10px;
+  margin-left: 10%;
+    border-color: #4fc3f7;
+
+}
+.input-div{
+
+}
+.logo{
+  width: 50%;
+}

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Learning</title>
+    <script src="https://www.wiris.net/demo/plugins/app/WIRISplugins.js?viewer=image"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<script>window.MathJax = { MathML: { extensions: ["mml3.js", "content-mathml.js"]}};</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=MML_HTMLorMML"></script>
+</head>
+       
+<body onload="loadButtons()">
+
+    <h1 style="text-align: center;">Question Paper and Solutions</h1>
+    <br><br>
+<input type="button" class="print_button" style="display: none;" onclick="printDiv('print_question_paper')" value="Print Question Paper" />
+        <input type="button" class="print_button" style="display: none;" onclick="printDiv('print_solution')" value="Print Solutions" />
+
+        <div id="print_question_paper" >
+            <html lang="en">
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Question Paper</title>
+                <script src="https://www.wiris.net/demo/plugins/app/WIRISplugins.js?viewer=image"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
+            </head>
+
+                <body>
+                    <h1 style="text-align: center;">Question Paper</h1>
+
+                    <div class="content" id="question_paper" >
+                        <div class="heading">
+                            <h3>{{ order.test_name }}</h3>
+                            <h1>{{ order.institute_name }}</h1>
+                            <h2> Paper Code: {{ order.paper_code }}</h2>
+                            <h3>Subject Code :{{ order.subject_code }}</h3>
+                            <h2>{{order.description}}</h2>
+                        </div>
+                        <div class="content">
+                            {% if order.guidelines %}
+                            {{ order.guidelines | safe }}
+                            {% endif %}
+                        </div>
+                        <div class="questions">
+                            {% for i in questions %}
+                            <div class="question">
+                                <strong>{{forloop.counter}})</strong> {{i.question.text|safe}}
+                                <p></p>
+                                <div class="options">
+                                    {% for option in i.question.Option.all %}
+                                    <div class="option"><span>{{forloop.counter}}) </span>{{option.option | safe}} </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <style>
+                        .heading {
+                            text-align: center;
+                        }
+
+                        h1,
+                        h2,
+                        h3,
+                        h4,
+                        h5 {
+                            padding: 4px;
+                            margin: 0;
+                        }
+
+                        h1 {
+                            font-size: 40px;
+                        }
+
+                        .content {
+                            padding: 40px;
+                        }
+
+                        .questions {
+                            display: grid;
+                            grid-template-columns:1fr 1fr;
+                            grid-gap: 40px;
+
+                        }
+
+                        .options{
+                            display: grid;
+                            gap: 5px;
+                            margin-top: 10px;
+                            
+                        }
+                        .option{
+                        }
+
+                        .question p {
+                            margin: 0;
+                            display: inline-block;
+                        }
+                    </style>
+
+                </body>
+
+            </html>
+
+        </div>
+
+        <br><br><br><br><br><br><br><br><br><br>
+
+        <h1 style="text-align: center;">Solutions</h1>
+        <br><br><br><br>
+
+        <div id="print_solution"   >
+            <html lang="en">
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Solutions</title>
+                <script src="https://www.wiris.net/demo/plugins/app/WIRISplugins.js?viewer=image"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
+                <head>
+
+                <body>
+                    <div class="content" id="question_paper">
+                        <div class="heading">
+                            <h3>{{ order.test_name }}</h3>
+                            <h1>{{ order.institute_name }}</h1>
+                            <h2> Paper Code: {{ order.paper_code }}</h2>
+                            <h3>Subject Code :{{ order.subject_code }}</h3>
+                            <h2>{{order.description}}</h2>
+                        </div>
+                        <div class="content">
+                            {% if order.guidelines %}
+                            {{ order.guidelines | safe }}
+                            {% endif %}
+                        </div>
+                        <div class="questions">
+                            {% for i in questions %}
+                            <div class="question">
+                                <strong>{{forloop.counter}})</strong> {{i.question.solution.text|safe}}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <style>
+                        .heading {
+                            text-align: center;
+                        }
+
+                        h1,
+                        h2,
+                        h3,
+                        h4,
+                        h5 {
+                            padding: 4px;
+                            margin: 0;
+                        }
+
+                        h1 {
+                            font-size: 40px;
+                        }
+
+                        .content {
+                            padding: 40px;
+                        }
+
+                        .questions {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            align-items: center;
+                            grid-gap: 40px;
+
+                        }
+
+                        .question p {
+                            margin: 0;
+                            display: inline-block;
+                        }
+                       
+                    </style>
+                </body>
+            </html>
+        </div>
+
+        <script>
+
+            function loadButtons()
+            {
+                document.getElementsByClassName("print_button")[0].style.display = "inline-block";
+                document.getElementsByClassName("print_button")[1].style.display = "inline-block";
+            }
+
+            function printDiv(divName) {
+                var printContents = document.getElementById(divName).innerHTML;
+                var originalContents = document.body.innerHTML;
+
+                document.body.innerHTML = printContents;
+
+                window.print();
+
+                document.body.innerHTML = originalContents;
+            }
+        </script>
+    </body>
+
+</html>

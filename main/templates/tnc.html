@@ -1,0 +1,540 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta name="google-site-verification" content="t2DpxpAnwHBM_7JmzmOPk7uHGp0vybubJoG78SipHHU" />
+	<title>Edu Learning</title>
+	<meta content="Your personal guide from scratch to success" name="description" />
+	<meta content="Edu Learning, IITJEE, NEET, Internship" name="keywords" />
+
+	<!-- Favicons -->
+	<link href="{% static 'landing/images/favicon.jpeg' %}" rel="icon" />
+	<link href="{% static 'landing/images/favicon.jpeg' %}" rel="apple-touch-icon" />
+
+	<!-- Google Fonts -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+		rel="stylesheet" />
+
+	<!-- Vendor CSS Files -->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<!-- Template Main CSS File -->
+	<link href="{% static 'landing/assets/css/style.css' %}" rel="stylesheet" />
+	<link href="{% static 'landing/assets/css/custom.css' %}" rel="stylesheet" />
+	<link href="{% static 'landing/assets/css/app.css' %}" rel="stylesheet" />
+
+
+	<!-- SITE TITLE -->
+	<title>Edu Learning Learnings</title>
+
+	<!-- FAVICON AND TOUCH ICONS -->
+	<link rel="shortcut icon" href="{% static 'landing/images/favicon.jpeg' %}" type="image/x-icon">
+	<link rel="icon" href="{% static 'landing/images/favicon.jpeg' %}" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="152x152" href="{% static 'landing/images/favicon.jpeg' %}">
+	<link rel="apple-touch-icon" sizes="120x120" href="{% static 'landing/images/favicon.jpeg' %}">
+	<link rel="apple-touch-icon" sizes="76x76" href="{% static 'landing/images/favicon.jpeg' %}">
+	<link rel="apple-touch-icon" href="{% static 'landing/images/favicon.jpeg' %}">
+	<link rel="icon" href="{% static 'landing/images/favicon.jpeg' %}" type="image/x-icon">
+
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,400,500,700,900" rel="stylesheet">
+
+	<!-- BOOTSTRAP CSS -->
+	<link href="{% static 'landing/css/bootstrap.min.css' %}" rel="stylesheet">
+
+	<!-- FONT ICONS -->
+	<link href="https://use.fontawesome.com/releases/v5.11.0/css/all.css" rel="stylesheet" crossorigin="anonymous">
+	<link href="{% static 'landing/css/flaticon.css' %}" rel="stylesheet">
+
+	<!-- PLUGINS STYLESHEET -->
+	<link href="{% static 'landing/css/menu.css' %}" rel="stylesheet">
+	<link id="effect" href="{% static 'landing/css/dropdown-effects/fade-down.css' %}" media="all" rel="stylesheet">
+	<link href="{% static 'landing/css/owl.carousel.min.css' %}" rel="stylesheet">
+	<link href="{% static 'landing/css/owl.theme.default.min.css' %}" rel="stylesheet">
+
+
+
+
+
+
+
+	<link href="{% static 'landing/css/animate.css' %}" rel="stylesheet">
+
+	<!-- TEMPLATE CSS -->
+	<link href="{% static 'landing/css/skyblue-theme.css' %}" rel="stylesheet">
+
+	<!-- Style Switcher CSS -->
+	<link href="{% static 'landing/css/indigo-theme.css' %}" rel="alternate stylesheet" title="indigo-theme">
+
+	<!-- RESPONSIVE CSS -->
+	<link href="{% static 'landing/css/responsive.css' %}" rel="stylesheet">
+
+</head>
+
+
+
+
+<body>
+
+	<!-- PAGE CONTENT
+		============================================= -->
+	<div id="page" class="page">
+		<!-- HEADER
+			============================================= -->
+		<header id="header" class="header tra-menu navbar-light">
+			<div class="header-wrapper">
+				<!-- MOBILE HEADER -->
+				<div class="wsmobileheader clearfix">
+					<span class="smllogo"><img src="{% static '/images/logo.png' %}" width="130" height="65"
+							style="margin-top:-10px;" alt="mobile-logo" /></span>
+					<a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
+				</div>
+				<!-- NAVIGATION MENU -->
+				<div class="wsmainfull menu clearfix">
+					<div class="wsmainwp clearfix">
+						<!-- LOGO IMAGE -->
+						<!-- For Retina Ready displays take a image with double the amount of pixels that your image will be displayed (e.g 310 x 72 pixels) -->
+						<div class="desktoplogo"><a href="#hero-3" class="logo-black"><img
+									src="{% static '/images/logo.png' %}" width="130" height="65" alt="header-logo"></a>
+						</div>
+						<div class="desktoplogo"><a href="#hero-3" class="logo-white"><img
+									src="{% static '/images/logo.png' %}" width="130" height="65" alt="header-logo"></a>
+						</div>
+						<!-- MAIN MENU -->
+						<nav class="wsmenu clearfix">
+							<ul class="wsmenu-list">
+								<li class="nl-simple" aria-haspopup="true"><a href="{% url 'home' %}">Home</a></li>
+
+
+								<li aria-haspopup="true"><a href="{% url 'select_class' %}"><span class="">Generate
+											Test</span></a>
+
+								</li>
+								<!-- SIMPLE NAVIGATION LINK -->
+
+
+								<!-- SIMPLE NAVIGATION LINK -->
+								<li class="nl-simple" aria-haspopup="true"><a href="/#pricing">Pricing</a></li>
+
+								{% if profile_completion %}
+								<li class="nl-simple" aria-haspopup="true"><a
+										href="{% url 'complete_profile' %}">Complete Profile</a></li>
+
+								{% endif %}
+
+								<!-- HEADER BUTTON -->
+								{% if request.user.is_teacher %}
+								<li class="nl-simple" aria-haspopup="true"><a
+										href="{% url 'teacher_dashboard' %}">Teacher Dashboard</a></li>
+
+								{% endif %}
+								{% if request.user.is_school %}
+								<li class="nl-simple" aria-haspopup="true"><a href="{% url 'school_dashboard' %}">School
+										Dashboard</a></li>
+								{% endif %}
+								{% if not user.is_authenticated %}
+								<li class="nl-simple" aria-haspopup="true"><a
+										href="{% url 'accounts:log_in' %}">LOGIN</a></li>
+								{% else %}
+								<li class="nl-simple" aria-haspopup="true"><a
+										href="{% url 'accounts:log_out' %}">Logout</a></li>
+
+								{% endif %}
+								<li class="nl-simple" aria-haspopup="true"><a href="/#contact">Contact</a></li>
+
+							</ul>
+						</nav> <!-- END MAIN MENU -->
+
+					</div>
+				</div> <!-- END NAVIGATION MENU -->
+
+
+			</div> <!-- End header-wrapper -->
+
+		</header> <!-- END HEADER -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<section id="contact" class="contact">
+			<div class="container">
+				<div class="section-title">
+					<h2>Terms and Conditions</h2>
+				</div>
+
+				<div class="box-item">
+					<div class="box-info info-box__shadow" style="text-align: center;">
+						<div>
+							<h3>Welcome to Edu Learning E-portal!</h3>
+
+							<p>
+								These terms and conditions outline the rules and regulations for the use of Edu Learning
+								E-portal's Website, located at http://rancikelearning.com/.
+							</p>
+
+							<p>
+								By accessing this website we assume you accept these terms and conditions. Do not
+								continue to use Edu Learning E-portal if you do not agree to take all of the terms and
+								conditions stated on this page.
+							</p>
+							<p>
+								The following terminology applies to these Terms and Conditions, Privacy Statement and
+								Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the
+								person log on this website and compliant to the Company’s terms and conditions. "The
+								Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties",
+								or "Us", refers to both the Client and ourselves. All terms refer to the offer,
+								acceptance and consideration of payment necessary to undertake the process of our
+								assistance to the Client in the most appropriate manner for the express purpose of
+								meeting the Client’s needs in respect of provision of the Company’s stated services, in
+								accordance with and subject to, prevailing law of Netherlands. Any use of the above
+								terminology or other words in the singular, plural, capitalization and/or he/she or
+								they, are taken as interchangeable and therefore as referring to same.
+							</p>
+							<h8>
+								Cookies
+							</h8>
+
+							<p>
+								We employ the use of cookies. By accessing Edu Learning E-portal, you agreed to use cookies
+								in agreement with the Edu Learning E-portal's Privacy Policy.
+								Most interactive websites use cookies to let us retrieve the user’s details for each
+								visit. Cookies are used by our website to enable the functionality of certain areas to
+								make it easier for people visiting our website. Some of our affiliate/advertising
+								partners may also use cookies.
+
+							</p>
+							<h6> License</h6>
+							<p>
+								Unless otherwise stated, Edu Learning E-portal and/or its licensors own the intellectual
+								property rights for all material on Edu Learning E-portal. All intellectual property rights
+								are reserved. You may access this from Edu Learning E-portal for your own personal use
+								subjected to restrictions set in these terms and conditions.
+								You must not:
+								• Republish material from Edu Learning E-portal
+								• Sell, rent or sub-license material from Edu Learning E-portal
+								• Reproduce, duplicate or copy material from Edu Learning E-portal
+								• Redistribute content from Edu Learning E-portal
+								<br>
+								This Agreement shall begin on the date hereof. Our Terms and Conditions were created
+								with the help of the Terms And Conditions Generator.
+
+							</p>
+							<p>
+								Parts of this website offer an opportunity for users to post and exchange opinions and
+								information in certain areas of the website. Edu Learning E-portal does not filter, edit,
+								publish or review Comments prior to their presence on the website. Comments do not
+								reflect the views and opinions of Edu Learning E-portal,its agents and/or affiliates.
+								Comments reflect the views and opinions of the person who post their views and opinions.
+								To the extent permitted by applicable laws, Edu Learning E-portal shall not be liable for the
+								Comments or for any liability, damages or expenses caused and/or suffered as a result of
+								any use of and/or posting of and/or appearance of the Comments on this website.
+							</p>
+							<p>
+								Edu Learning E-portal reserves the right to monitor all Comments and to remove any Comments
+								which can be considered inappropriate, offensive or causes breach of these Terms and
+								Conditions.
+							</p>
+
+							<p>
+								You warrant and represent that:
+								• You are entitled to post the Comments on our website and have all necessary licenses
+								and consents to do so;
+								• The Comments do not invade any intellectual property right, including without
+								limitation copyright, patent or trademark of any third party;
+								• The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise
+								unlawful material which is an invasion of privacy
+								• The Comments will not be used to solicit or promote business or custom or present
+								commercial activities or unlawful activity.
+
+							</p>
+							<p>You hereby grant Edu Learning E-portal a non-exclusive license to use, reproduce, edit and
+								authorize others to use, reproduce and edit any of your Comments in any and all forms,
+								formats or media.</p>
+							<h6>Hyperlinking to our Content</h6>
+							<p>The following organizations may link to our Website without prior written approval:
+								• Government agencies;
+								• Search engines;
+								• News organizations;
+								• Online directory distributors may link to our Website in the same manner as they
+								hyperlink to the Websites of other listed businesses; and
+								• System wide Accredited Businesses except soliciting non-profit organizations, charity
+								shopping malls, and charity fundraising groups which may not hyperlink to our Web site.
+							</p>
+							<p>These organizations may link to our home page, to publications or to other Website
+								information so long as the link: (a) is not in any way deceptive; (b) does not falsely
+								imply sponsorship, endorsement or approval of the linking party and its products and/or
+								services; and (c) fits within the context of the linking party’s site.</p>
+							<p>We may consider and approve other link requests from the following types of
+								organizations:
+								• commonly-known consumer and/or business information sources;
+								• dot.com community sites;
+								• associations or other groups representing charities;
+								• online directory distributors;
+								• internet portals;
+								• accounting, law and consulting firms; and
+								• educational institutions and trade associations.
+							</p>
+							<p>We will approve link requests from these organizations if we decide that: (a) the link
+								would not make us look unfavorably to ourselves or to our accredited businesses; (b) the
+								organization does not have any negative records with us; (c) the benefit to us from the
+								visibility of the hyperlink compensates the absence of Edu Learning E-portal; and (d) the
+								link is in the context of general resource information.</p>
+							<p>These organizations may link to our home page so long as the link: (a) is not in any way
+								deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the
+								linking party and its products or services; and (c) fits within the context of the
+								linking party’s site.
+								If you are one of the organizations listed in paragraph 2 above and are interested in
+								linking to our website, you must inform us by sending an e-mail to Edu Learning E-portal.
+								Please include your name, your organization name, contact information as well as the URL
+								of your site, a list of any URLs from which you intend to link to our Website, and a
+								list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a
+								response.
+								Approved organizations may hyperlink to our Website as follows:
+								• By use of our corporate name; or
+								• By use of the uniform resource locator being linked to; or
+								• By use of any other description of our Website being linked to that makes sense within
+								the context and format of content on the linking party’s site.
+								No use of Edu Learning E-portal's logo or other artwork will be allowed for linking absent a
+								trademark license agreement.
+							</p>
+							<h6>iFrames</h6>
+							<p>Without prior approval and written permission, you may not create frames around our
+								Webpages that alter in any way the visual presentation or appearance of our Website.</p>
+							<h6>Content Liability</h6>
+
+							<p>We shall not be hold responsible for any content that appears on your Website. You agree
+								to protect and defend us against all claims that is rising on your Website. No link(s)
+								should appear on any Website that may be interpreted as libelous, obscene or criminal,
+								or which infringes, otherwise violates, or advocates the infringement or other violation
+								of, any third party rights.</p>
+							<h6>Your Privacy</h6>
+							<p>
+								Reservation of Rights <br>
+								We reserve the right to request that you remove all links or any particular link to our
+								Website. You approve to immediately remove all links to our Website upon request. We
+								also reserve the right to amen these terms and conditions and it’s linking policy at any
+								time. By continuously linking to our Website, you agree to be bound to and follow these
+								linking terms and conditions.
+
+							</p>
+
+							<p>
+								Removal of links from our website <br>
+								If you find any link on our Website that is offensive for any reason, you are free to
+								contact and inform us any moment. We will consider requests to remove links but we are
+								not obligated to or so or to respond to you directly.
+								We do not ensure that the information on this website is correct, we do not warrant its
+								completeness or accuracy; nor do we promise to ensure that the website remains available
+								or that the material on the website is kept up to date.
+
+							</p>
+							<h6>Disclaimer</h6>
+
+							<p>To the maximum extent permitted by applicable law, we exclude all representations,
+								warranties and conditions relating to our website and the use of this website. Nothing
+								in this disclaimer will:
+								• limit or exclude our or your liability for death or personal injury;
+								• limit or exclude our or your liability for fraud or fraudulent misrepresentation;
+								• limit any of our or your liabilities in any way that is not permitted under applicable
+								law; or
+								• exclude any of our or your liabilities that may not be excluded under applicable law.
+								The limitations and prohibitions of liability set in this Section and elsewhere in this
+								disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities
+								arising under the disclaimer, including liabilities arising in contract, in tort and for
+								breach of statutory duty.
+								As long as the website and the information and services on the website are provided free
+								of charge, we will not be liable for any loss or damage of any nature.
+							</p>
+
+
+
+							<h4>
+								COPYRIGHT
+							</h4>
+
+
+							<p>Copyright © Edu Learning E-portal 2021 All Rights Reserved</p>
+
+
+
+							<p>
+								All files and information contained in this Website or Blog are copyright by Edu Learning
+								E-portal, and may not be duplicated, copied, modified or adapted, in any way without our
+								written permission. Our Website or Blog may contain our service marks or trademarks as
+								well as those of our affiliates or other companies, in the form of words, graphics, and
+								logos. Your use of our Website, Blog or Services does not constitute any right or
+								license for you to use our service marks or trademarks, without the prior written
+								permission of Edu Learning E-portal. Our Content, as found within our Website, Blog and
+								Services, is protected under United States and foreign copyrights. The copying,
+								redistribution, use or publication by you of any such Content, is strictly prohibited.
+								Your use of our Website and Services does not grant you any ownership rights to our
+								Content.
+								Copyright © Edu Learning E-portal. All Rights Reserved.
+
+							</p>
+
+
+
+
+
+
+
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Contact Section -->
+		</main>
+		<!-- End #main -->
+
+
+		<!-- FOOTER-3
+			============================================= -->
+		<footer id="footer-3" class="footer division">
+			<!-- ======= Footer ======= -->
+			<footer id="footer">
+				<div class="footer-top">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-4 col-md-6 footer-contact">
+								<h3>Edu Learning<span>.</span></h3>
+								<p>
+									NIT Jalandhar <br />
+									Punjab<br>
+									India <br><br>
+									<strong>Phone : </strong> <a href="tel:+918847423837" style="color:white;">
+										+918847423837</a><br>
+									<strong>Email : </strong><a href="mailto:office@edulearning.com"
+										style="color:white;"> office@edulearning.com</a><br>
+								</p>
+							</div>
+
+							<div class="col-lg-4 col-md-6 footer-links">
+								<h4>Useful Links</h4>
+								<ul>
+									<li>
+										<i class="fas fa-chevron-right"></i> <a
+											href="http://www.rancikelearning.com">Home</a>
+									</li>
+									<li>
+										<i class="fas fa-chevron-right"></i> <i class="bx bx-chevron-right"></i> <a
+											href="#">About us</a>
+									</li>
+									<li>
+										<i class="fa fa-chevron-right"></i> <i class="bx bx-chevron-right"></i> <a
+											href="#">Carrers</a>
+									</li>
+									<li>
+										<i class="fa fa-chevron-right"></i> <i class="bx bx-chevron-right"></i>
+										<a href="#">Terms of service</a>
+									</li>
+									<li>
+										<i class="fa fa-chevron-right"></i>
+										<a href="#">Privacy policy</a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="col-lg-4 col-md-6 footer-links">
+								<h4>Our Packages</h4>
+								<ul>
+									<li>
+										<i class="fa fa-chevron-right"></i>
+										<a href="#">Edu Learning LIVE</a>
+									</li>
+									<li>
+										<i class="fa fa-chevron-right"></i>
+										<a href="#">Edu Learning Test Series</a>
+									</li>
+									<li>
+										<i class="fa fa-chevron-right"></i>
+										<a href="#">Edu Learning Infinity</a>
+									</li>
+									<li>
+										<i class="fa fa-chevron-right"></i>
+										<a href="#">Edu Learning App</a>
+									</li>
+									<li>
+										<i class="fa fa-chevron-right"></i>
+										<a href="#">Internship with us</a>
+									</li>
+								</ul>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+
+				<div class="container d-md-flex py-4">
+					<div class="mr-md-auto text-center text-md-left">
+						<div class="copyright">
+							&copy; Copyright <strong><span>Edu Learning</span></strong>. All Rights Reserved
+						</div>
+						<!-- <div class="credits">
+					Designed by
+					<a href="#">#</a>
+				</div> -->
+					</div>
+					<div class="social-links text-center text-md-right pt-3 pt-md-0">
+						<a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+						<a href="https://m.facebook.com/Rancike8050/?tsid=0.23084649485403097&source=result"
+							class="facebook"><i class="fab fa-facebook-f"></i></a>
+						<a href="https://instagram.com/company?igshid=1k8qz2repq5hn" class="instagram"><i
+								class="fab fa-instagram"></i></a>
+						<a href="#" class="google-plus"><i class="fab fa-slack-hash"></i></a>
+						<a href="https://www.linkedin.com/company/company-online-learning" class="linkedin"><i
+								class="fab fa-linkedin-in"></i></a>
+					</div>
+				</div>
+			</footer>
+			<!-- End Footer -->
+			<!-- End container -->
+		</footer> <!-- END FOOTER-3 -->
+
+	</div> <!-- END PAGE CONTENT -->
+
+	<!-- EXTERNAL SCRIPTS
+		============================================= -->
+	<script src="{% static 'landing/js/jquery-3.4.1.min.js' %}"></script>
+	<script src="{% static 'landing/js/bootstrap.min.js' %}"></script>
+	<script async src="{% static 'landing/js/jquery.validate.min.js' %}"></script>
+	<!-- <script async src="{% static 'landing/js/wow.js' %}"></script> -->
+
+	<!-- Custom Script -->
+	<script async src="{% static 'landing/js/custom.js' %}"></script>
+
+
+</body>
+
+</html>

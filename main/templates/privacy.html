@@ -1,0 +1,373 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="google-site-verification" content="t2DpxpAnwHBM_7JmzmOPk7uHGp0vybubJoG78SipHHU" />
+    <title>Edu Learning</title>
+    <meta content="Your personal guide from scratch to success" name="description" />
+    <meta content="Edu Learning, IITJEE, NEET, Internship" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="{% static 'landing/images/favicon.jpeg' %}" rel="icon" />
+    <link href="{% static 'landing/images/favicon.jpeg' %}" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet" />
+
+    <!-- Vendor CSS Files -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="{% static 'landing/assets/css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'landing/assets/css/custom.css' %}" rel="stylesheet" />
+    <link href="{% static 'landing/assets/css/app.css' %}" rel="stylesheet" />
+
+
+    <!-- SITE TITLE -->
+    <title>Edu Learning Learnings</title>
+
+    <!-- FAVICON AND TOUCH ICONS -->
+    <link rel="shortcut icon" href="{% static 'landing/images/favicon.jpeg' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'landing/images/favicon.jpeg' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'landing/images/favicon.jpeg' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'landing/images/favicon.jpeg' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'landing/images/favicon.jpeg' %}">
+    <link rel="apple-touch-icon" href="{% static 'landing/images/favicon.jpeg' %}">
+    <link rel="icon" href="{% static 'landing/images/favicon.jpeg' %}" type="image/x-icon">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,400,500,700,900" rel="stylesheet">
+
+    <!-- BOOTSTRAP CSS -->
+    <link href="{% static 'landing/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- FONT ICONS -->
+    <link href="https://use.fontawesome.com/releases/v5.11.0/css/all.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="{% static 'landing/css/flaticon.css' %}" rel="stylesheet">
+
+    <!-- PLUGINS STYLESHEET -->
+    <link href="{% static 'landing/css/menu.css' %}" rel="stylesheet">
+    <link id="effect" href="{% static 'landing/css/dropdown-effects/fade-down.css' %}" media="all" rel="stylesheet">
+    <link href="{% static 'landing/css/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'landing/css/owl.theme.default.min.css' %}" rel="stylesheet">
+
+
+
+
+
+
+
+    <link href="{% static 'landing/css/animate.css' %}" rel="stylesheet">
+
+    <!-- TEMPLATE CSS -->
+    <link href="{% static 'landing/css/skyblue-theme.css' %}" rel="stylesheet">
+
+    <!-- Style Switcher CSS -->
+    <link href="{% static 'landing/css/indigo-theme.css' %}" rel="alternate stylesheet" title="indigo-theme">
+
+    <!-- RESPONSIVE CSS -->
+    <link href="{% static 'landing/css/responsive.css' %}" rel="stylesheet">
+
+</head>
+
+
+
+
+<body>
+
+    <!-- PAGE CONTENT
+		============================================= -->
+    <div id="page" class="page">
+        <!-- HEADER
+			============================================= -->
+        <header id="header" class="header tra-menu navbar-light">
+            <div class="header-wrapper">
+                <!-- MOBILE HEADER -->
+                <div class="wsmobileheader clearfix">
+                    <span class="smllogo"><img src="{% static '/images/logo.png' %}" width="130" height="65"
+                            style="margin-top:-10px;" alt="mobile-logo" /></span>
+                    <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
+                </div>
+                <!-- NAVIGATION MENU -->
+                <div class="wsmainfull menu clearfix">
+                    <div class="wsmainwp clearfix">
+                        <!-- LOGO IMAGE -->
+                        <!-- For Retina Ready displays take a image with double the amount of pixels that your image will be displayed (e.g 310 x 72 pixels) -->
+                        <div class="desktoplogo"><a href="#hero-3" class="logo-black"><img
+                                    src="{% static '/images/logo.png' %}" width="130" height="65" alt="header-logo"></a>
+                        </div>
+                        <div class="desktoplogo"><a href="#hero-3" class="logo-white"><img
+                                    src="{% static '/images/logo.png' %}" width="130" height="65" alt="header-logo"></a>
+                        </div>
+                        <!-- MAIN MENU -->
+                        <nav class="wsmenu clearfix">
+                            <ul class="wsmenu-list">
+                                <li class="nl-simple" aria-haspopup="true"><a href="{% url 'home' %}">Home</a></li>
+
+
+                                <li aria-haspopup="true"><a href="{% url 'select_class' %}"><span class="">Generate
+                                            Test</span></a>
+
+                                </li>
+                                <!-- SIMPLE NAVIGATION LINK -->
+
+
+                                <!-- SIMPLE NAVIGATION LINK -->
+                                <li class="nl-simple" aria-haspopup="true"><a href="/#pricing">Pricing</a></li>
+
+                                {% if profile_completion %}
+                                <li class="nl-simple" aria-haspopup="true"><a
+                                        href="{% url 'complete_profile' %}">Complete Profile</a></li>
+
+                                {% endif %}
+
+                                <!-- HEADER BUTTON -->
+                                {% if request.user.is_teacher %}
+                                <li class="nl-simple" aria-haspopup="true"><a
+                                        href="{% url 'teacher_dashboard' %}">Teacher Dashboard</a></li>
+
+                                {% endif %}
+                                {% if request.user.is_school %}
+                                <li class="nl-simple" aria-haspopup="true"><a href="{% url 'school_dashboard' %}">School
+                                        Dashboard</a></li>
+                                {% endif %}
+                                {% if not user.is_authenticated %}
+                                <li class="nl-simple" aria-haspopup="true"><a
+                                        href="{% url 'accounts:log_in' %}">LOGIN</a></li>
+                                {% else %}
+                                <li class="nl-simple" aria-haspopup="true"><a
+                                        href="{% url 'accounts:log_out' %}">Logout</a></li>
+
+                                {% endif %}
+                                <li class="nl-simple" aria-haspopup="true"><a href="/#contact">Contact</a></li>
+
+                            </ul>
+                        </nav> <!-- END MAIN MENU -->
+
+                    </div>
+                </div> <!-- END NAVIGATION MENU -->
+
+
+            </div> <!-- End header-wrapper -->
+
+        </header> <!-- END HEADER -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Disclaimer for Edu Learning E-portal</h2>
+                </div>
+
+                <div class="box-item">
+                    <div class="box-info info-box__shadow" style="text-align: center;">
+                        <div>
+
+                            <p>
+                                If you require any more information or have any questions about our site's disclaimer,
+                                please feel free to contact us by email at office@edulearning.com. Our Disclaimer
+                                was generated with the help of the Disclaimer Generator.
+                            </p>
+
+                            <p>
+                                By accessing this website we assume you accept these terms and conditions. Do not
+                                continue to use Edu Learning E-portal if you do not agree to take all of the terms and
+                                conditions stated on this page.
+                            </p>
+
+                            <h3>Disclaimers for Edu Learning E-portal</h3>
+                            <p>
+                                All the information on this website - http://rancikelearning.com/ - is published in good
+                                faith and for general information purpose only. Edu Learning E-portal does not make any
+                                warranties about the completeness, reliability and accuracy of this information. Any
+                                action you take upon the information you find on this website (Edu Learning E-portal), is
+                                strictly at your own risk. Edu Learning E-portal will not be liable for any losses and/or
+                                damages in connection with the use of our website.
+                            </p>
+                            <p>
+                                From our website, you can visit other websites by following hyperlinks to such external
+                                sites. While we strive to provide only quality links to useful and ethical websites, we
+                                have no control over the content and nature of these sites. These links to other
+                                websites do not imply a recommendation for all the content found on these sites. Site
+                                owners and content may change without notice and may occur before we have the
+                                opportunity to remove a link which may have gone 'bad'.
+                            </p>
+                            <p>
+                                Please be also aware that when you leave our website, other sites may have different
+                                privacy policies and terms which are beyond our control. Please be sure to check the
+                                Privacy Policies of these sites as well as their "Terms of Service" before engaging in
+                                any business or uploading any information
+                            </p>
+                            <h6>
+                                Consent
+                            </h6>
+                            <p>
+                                By using our website, you hereby consent to our disclaimer and agree to its terms.
+                            </p>
+                            <h6>
+                                Update
+                            </h6>
+                            <p>
+                                Should we update, amend or make any changes to this document, those changes will be
+                                prominently posted here.
+                            </p>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Contact Section -->
+        </main>
+        <!-- End #main -->
+
+
+        <!-- FOOTER-3
+			============================================= -->
+        <footer id="footer-3" class="footer division">
+            <!-- ======= Footer ======= -->
+            <footer id="footer">
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 footer-contact">
+                                <h3>Edu Learning<span>.</span></h3>
+                                <p>
+                                    NIT Jalandhar <br />
+                                    Punjab<br>
+                                    India <br><br>
+                                    <strong>Phone : </strong> <a href="tel:+918847423837" style="color:white;">
+                                        +918847423837</a><br>
+                                    <strong>Email : </strong><a href="mailto:office@edulearning.com"
+                                        style="color:white;"> office@edulearning.com</a><br>
+                                </p>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 footer-links">
+                                <h4>Useful Links</h4>
+                                <ul>
+                                    <li>
+                                        <i class="fas fa-chevron-right"></i> <a
+                                            href="http://www.rancikelearning.com">Home</a>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-chevron-right"></i> <i class="bx bx-chevron-right"></i> <a
+                                            href="#">About us</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-chevron-right"></i> <i class="bx bx-chevron-right"></i> <a
+                                            href="#">Carrers</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-chevron-right"></i> <i class="bx bx-chevron-right"></i>
+                                        <a href="#">Terms of service</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-chevron-right"></i>
+                                        <a href="#">Privacy policy</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 footer-links">
+                                <h4>Our Packages</h4>
+                                <ul>
+                                    <li>
+                                        <i class="fa fa-chevron-right"></i>
+                                        <a href="#">Edu Learning LIVE</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-chevron-right"></i>
+                                        <a href="#">Edu Learning Test Series</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-chevron-right"></i>
+                                        <a href="#">Edu Learning Infinity</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-chevron-right"></i>
+                                        <a href="#">Edu Learning App</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-chevron-right"></i>
+                                        <a href="#">Internship with us</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container d-md-flex py-4">
+                    <div class="mr-md-auto text-center text-md-left">
+                        <div class="copyright">
+                            &copy; Copyright <strong><span>Edu Learning</span></strong>. All Rights Reserved
+                        </div>
+                        <!-- <div class="credits">
+					Designed by
+					<a href="#">#</a>
+				</div> -->
+                    </div>
+                    <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://m.facebook.com/Rancike8050/?tsid=0.23084649485403097&source=result"
+                            class="facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/company?igshid=1k8qz2repq5hn" class="instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="fab fa-slack-hash"></i></a>
+                        <a href="https://www.linkedin.com/company/company-online-learning" class="linkedin"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </footer>
+            <!-- End Footer -->
+            <!-- End container -->
+        </footer> <!-- END FOOTER-3 -->
+
+    </div> <!-- END PAGE CONTENT -->
+
+    <!-- EXTERNAL SCRIPTS
+		============================================= -->
+    <script src="{% static 'landing/js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'landing/js/bootstrap.min.js' %}"></script>
+    <script async src="{% static 'landing/js/jquery.validate.min.js' %}"></script>
+    <!-- <script async src="{% static 'landing/js/wow.js' %}"></script> -->
+
+    <!-- Custom Script -->
+    <script async src="{% static 'landing/js/custom.js' %}"></script>
+
+
+</body>
+
+</html>

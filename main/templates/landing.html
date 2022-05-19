@@ -1,0 +1,652 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta name="google-site-verification" content="t2DpxpAnwHBM_7JmzmOPk7uHGp0vybubJoG78SipHHU" />
+	<title>Edu Learning</title>
+	<meta content="Your personal guide from scratch to success" name="description" />
+	<meta content="Edu Learning, IITJEE, NEET, Internship" name="keywords" />
+
+	<!-- Favicons -->
+	<link href="{% static 'landing/images/favicon.jpeg' %}" rel="icon" />
+	<link href="{% static 'landing/images/favicon.jpeg' %}" rel="apple-touch-icon" />
+
+	<!-- Google Fonts -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+		rel="stylesheet" />
+
+	<!-- Vendor CSS Files -->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<!-- Template Main CSS File -->
+	<link href="{% static 'landing/assets/css/style.css' %}" rel="stylesheet" />
+	<link href="{% static 'landing/assets/css/custom.css' %}" rel="stylesheet" />
+	<link href="{% static 'landing/assets/css/app.css' %}" rel="stylesheet" />
+
+
+	<!-- SITE TITLE -->
+	<title>Edu Learning Learnings</title>
+
+	<!-- FAVICON AND TOUCH ICONS -->
+	<link rel="shortcut icon" href="{% static 'landing/images/favicon.jpeg' %}" type="image/x-icon">
+	<link rel="icon" href="{% static 'landing/images/favicon.jpeg' %}" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="152x152" href="{% static 'landing/images/favicon.jpeg' %}">
+	<link rel="apple-touch-icon" sizes="120x120" href="{% static 'landing/images/favicon.jpeg' %}">
+	<link rel="apple-touch-icon" sizes="76x76" href="{% static 'landing/images/favicon.jpeg' %}">
+	<link rel="apple-touch-icon" href="{% static 'landing/images/favicon.jpeg' %}">
+	<link rel="icon" href="{% static 'landing/images/favicon.jpeg' %}" type="image/x-icon">
+
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,400,500,700,900" rel="stylesheet">
+
+	<!-- BOOTSTRAP CSS -->
+	<link href="{% static 'landing/css/bootstrap.min.css' %}" rel="stylesheet">
+
+	<!-- FONT ICONS -->
+	<link href="https://use.fontawesome.com/releases/v5.11.0/css/all.css" rel="stylesheet" crossorigin="anonymous">
+	<link href="{% static 'landing/css/flaticon.css' %}" rel="stylesheet">
+
+	<!-- PLUGINS STYLESHEET -->
+	<link href="{% static 'landing/css/menu.css' %}" rel="stylesheet">
+	<link id="effect" href="{% static 'landing/css/dropdown-effects/fade-down.css' %}" media="all" rel="stylesheet">
+	<link href="{% static 'landing/css/owl.carousel.min.css' %}" rel="stylesheet">
+	<link href="{% static 'landing/css/owl.theme.default.min.css' %}" rel="stylesheet">
+
+
+
+
+
+
+
+	<link href="{% static 'landing/css/animate.css' %}" rel="stylesheet">
+
+	<!-- TEMPLATE CSS -->
+	<link href="{% static 'landing/css/skyblue-theme.css' %}" rel="stylesheet">
+
+	<!-- Style Switcher CSS -->
+	<link href="{% static 'landing/css/indigo-theme.css' %}" rel="alternate stylesheet" title="indigo-theme">
+
+	<!-- RESPONSIVE CSS -->
+	<link href="{% static 'landing/css/responsive.css' %}" rel="stylesheet">
+
+</head>
+
+
+
+
+<body>
+
+	<!-- PAGE CONTENT
+		============================================= -->
+	<div id="page" class="page">
+		<!-- HEADER
+			============================================= -->
+		<header id="header" class="header tra-menu navbar-light">
+			<div class="header-wrapper">
+				<!-- MOBILE HEADER -->
+				<div class="wsmobileheader clearfix">
+					<span class="smllogo"><img src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" width="130" height="65"
+							style="margin-top:-10px;" alt="mobile-logo" /></span>
+					<a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
+				</div>
+				<!-- NAVIGATION MENU -->
+				<div class="wsmainfull menu clearfix">
+					<div class="wsmainwp clearfix">
+						<!-- LOGO IMAGE -->
+						<!-- For Retina Ready displays take a image with double the amount of pixels that your image will be displayed (e.g 310 x 72 pixels) -->
+						<div class="desktoplogo"><a href="#hero-3" class="logo-black"><img
+									src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" width="130" height="65" alt="header-logo"></a>
+						</div>
+						<div class="desktoplogo"><a href="#hero-3" class="logo-white"><img
+									src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" width="130" height="65" alt="header-logo"></a>
+						</div>
+						<!-- MAIN MENU -->
+						<nav class="wsmenu clearfix">
+							<ul class="wsmenu-list">
+								<li class="nl-simple" aria-haspopup="true"><a href="{% url 'home' %}">Home</a></li>
+
+								{% if request.user.is_teacher %}
+								<li aria-haspopup="true"><a href="{% url 'select_class' %}"><span class="">Generate
+											Test</span></a>
+
+								</li>
+								{% endif %}
+
+								<!-- SIMPLE NAVIGATION LINK -->
+
+
+								<!-- SIMPLE NAVIGATION LINK -->
+
+								{% if profile_completion %}
+								<li class="nl-simple" aria-haspopup="true"><a
+										href="{% url 'complete_profile' %}">Complete Profile</a></li>
+
+								{% endif %}
+
+								<!-- HEADER BUTTON -->
+								{% if request.user.is_teacher %}
+								<li class="nl-simple" aria-haspopup="true"><a
+										href="{% url 'teacher_dashboard' %}">Teacher Dashboard</a></li>
+
+								{% endif %}
+								{% if request.user.is_school %}
+								<li class="nl-simple" aria-haspopup="true"><a href="{% url 'school_dashboard' %}">School
+										Dashboard</a></li>
+								{% endif %}
+								{% if not user.is_authenticated %}
+								<li class="nl-simple" aria-haspopup="true"><a
+										href="{% url 'accounts:log_in' %}">Login</a></li>
+								<li class="nl-simple" aria-haspopup="true"><a
+										href="{% url 'accounts:sign_up' %}">Signup</a></li>
+								{% else %}
+								<li class="nl-simple" aria-haspopup="true"><a
+										href="{% url 'accounts:log_out' %}">Logout</a></li>
+
+								{% endif %}
+								<li class="nl-simple" aria-haspopup="true"><a href="/#pricing">Pricing</a></li>
+								<li class="nl-simple" aria-haspopup="true"><a href="/#contact">Contact</a></li>
+
+							</ul>
+						</nav> <!-- END MAIN MENU -->
+
+					</div>
+				</div> <!-- END NAVIGATION MENU -->
+
+
+			</div> <!-- End header-wrapper -->
+
+		</header> <!-- END HEADER -->
+
+
+		<section id="content-7" style=" text-align: center;"
+			class="content-7 bg-02 pt-100 mb-40 content-section division">
+			<div class="container white-color" style="height: 80vh;">
+				<div class="row d-flex align-items-center" style="margin-top: 25vh;">
+
+
+
+					<!-- HERO TEXT -->
+					<div class="col-lg-16">
+						<div class="hero-4-txt white-color wow fadeInRight" data-wow-duration="2.5s"
+							data-wow-delay="0.4s">
+
+							<!-- Title -->
+							<h2 class="" style="font-size:40px;">Welcome To The Evolution of Testing </h2>
+
+							<!-- Text -->
+							<p class="p-lg" style="font-size:28px;">
+								Generate Tests and Assignments from India's Biggest Question Bank
+							</p>
+							<button type="button" class="btn btn-primary btn-lg" id="download-button"><a
+									href="{% url 'select_class' %}" class="donwload-brochure">Get Started</a></button>
+
+
+							<a href="#contact"><button type="button" class="btn btn-outline btn-lg" id="login-button"
+									name="button">Contact Us</button></a>
+
+						</div>
+					</div> <!-- END HERO TEXT -->
+
+
+					<!-- HERO FORM -->
+
+				</div> <!-- End row -->
+			</div> <!-- End container -->
+		</section style="padding-bottom:50px;">
+
+
+
+
+
+
+
+
+
+
+		<!-- CONTENT-2
+			============================================= -->
+		<section id="course-objective" class="content-2 wide-60 content-section division">
+			<div class="container">
+				<div class="row d-flex align-items-center">
+
+
+					<!-- IMAGE BLOCK -->
+					<div class="col-md-5 col-lg-6">
+						<div class="img-block left-column pc-25 mb-40 wow fadeInRight" data-wow-delay="0.4s">
+							<img class="img-fluid" src="{% static 'landing/images/hero-7-img.png' %}"
+								alt="content-image">
+						</div>
+					</div>
+
+
+					<!-- HERO TEXT -->
+					<div class="col-lg-7 col-xl-6">
+						<div class="hero-3-txt wow fadeInRight" data-wow-duration="2.5s" data-wow-delay="0.4s">
+
+							<!-- Title -->
+							<h3 class="h3-lg" style="margin-bottom:35px;">How It Works</h3>
+
+							<!-- Text -->
+							<h4>For Individual Teachers</h4>
+							<p class="p-lg" style="font-size:18px;">
+							<ul style="list-style-type:disc;">
+								<li>
+									You Sign up at our portal as a Teacher and get <b>50</b> Free Credits,
+								</li>
+								<li>
+									Browse Our Question Bank and select questions and add them to test
+
+								</li>
+								<li>
+									You can add your own questions to test totally free of cost
+								</li>
+								<li>
+									Set marking scheme for the paper
+								</li>
+								<li>
+									Add instructions and details about test
+								</li>
+								<li>
+									And it's done , Setting quality tests was never this easy and quick
+								</li>
+							</ul>
+							</p>
+							<h4>For Schools and Organizations</h4>
+							<p class="p-lg" style="font-size:18px;">
+							<ul style="list-style-type:disc;">
+								<li>
+									You Sign up at our portal as a School and get <b>100</b> Free Credits,
+								</li>
+								<li>
+									You can then invite teachers of your school to the portal and manage their
+									credits
+
+								</li>
+								<li>
+									Your Teachers will love us
+								</li>
+							</ul>
+							</p>
+
+
+						</div>
+					</div> <!-- END HERO TEXT -->
+
+
+				</div> <!-- End row -->
+			</div> <!-- End container -->
+		</section> <!-- END CONTENT-2 -->
+
+
+
+
+		<!-- SERVICES-3
+			============================================= -->
+		<section id="description" class="services-3 bg-lightgrey wide-60 services-section division center-align">
+			<div class="container">
+
+
+				<!-- SECTION TITLE -->
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1">
+						<div class="section-title mb-60 text-center">
+
+							<!-- Title 	-->
+							<h3 class="h3-md">Why Choose This over Books</h3>
+
+							<!-- Text -->
+							<p class="p-lg">
+								History is not just the evolution of technology; it is the evolution of thought.
+								<br>
+								~James Redfield
+							</p>
+
+						</div>
+					</div>
+				</div>
+
+
+				<!-- PROCESS-3 WRAPPER -->
+				<div class="pbox-3-wrapper text-center">
+					<div class="row">
+
+
+						<!-- PROCESS BOX #1 -->
+						<div class="col-sm-6 col-lg-3">
+							<div class="pbox-3 wow fadeInUp" data-wow-delay="0.4s" style="height:270px;">
+
+
+								<div class="" style="height:130px;">
+									<img src="{% static 'landing/images/how-to.png' %}" alt="" style="width:50%;">
+								</div>
+
+
+								<!-- Text -->
+								<div class="">
+									<p class="grey-color">Digital Paper Setting</p>
+								</div>
+
+
+							</div>
+						</div> <!-- END PROCESS BOX #1 -->
+
+
+						<!-- PROCESS BOX #2 -->
+						<div class="col-sm-6 col-lg-3">
+							<div class="pbox-3 wow fadeInUp" data-wow-delay="0.6s" style="height:270px;">
+
+								<!-- Step -->
+								<div class="" style="height:130px;">
+									<img src="{% static 'landing/images/coaching-image.png' %}" alt=""
+										style="width:60%;">
+								</div>
+
+
+								<div class="">
+									<p class="grey-color">Becoming a tech-savy Teacher</p>
+								</div>
+
+
+							</div>
+						</div> <!-- END PROCESS BOX #2 -->
+
+
+						<!-- PROCESS BOX #3 -->
+						<div class="col-sm-6 col-lg-3">
+							<div class="pbox-3 wow fadeInUp" data-wow-delay="0.8s" style="height:270px;">
+
+								<div class="" style="height:130px;">
+									<img src="{% static 'landing/images/why-to.png' %}" alt=""
+										style="width:50%; height:100%;">
+								</div>
+
+
+								<!-- Text -->
+								<div class="">
+									<p class="grey-color">Search in Huge Database of Questions</p>
+								</div>
+
+							</div>
+						</div> <!-- END PROCESS BOX #3 -->
+
+
+						<!-- PROCESS BOX #4 -->
+						<div class="col-sm-6 col-lg-3">
+							<div class="pbox-3 icon-md wow fadeInUp" data-wow-delay="1s" style="height:270px;">
+
+								<div class="" style="height:130px;">
+									<img src="{% static 'landing/images/how-much.png' %}" alt="" style="width:50%;">
+								</div>
+
+
+								<!-- Text -->
+								<div class="">
+									<p class="grey-color">Our support team always got your back</p>
+								</div>
+
+							</div>
+						</div> <!-- END PROCESS BOX #4 -->
+
+
+					</div> <!-- End row -->
+				</div> <!-- END PROCESS-3 WRAPPER -->
+
+
+
+
+			</div> <!-- End container -->
+
+		</section>
+
+
+
+
+
+
+		<!-- CONTENT-8
+			============================================= -->
+		<section id="pricing" class="content-8 pt-100 content-section division">
+			<div class="container">
+				<div class="row d-flex align-items-center m-row">
+
+
+					<!-- TEXT BLOCK -->
+					<!-- TEXT BLOCK -->
+					<div class="col-md-7 col-lg-6">
+						<div class="txt-block right-column pc-35 wow fadeInRight" data-wow-delay="0.4s">
+
+							<!-- Title -->
+							<h3 class="h3-sm">How much does it cost?</h3>
+
+							<!-- Option List -->
+							<ul class="mt-35">
+
+								<!-- List Item #1 -->
+								<li class="">
+
+									<!-- Icon -->
+									<!-- <span><i class="fas fa-check"></i></span> -->
+
+									<!-- Text -->
+									<div class="pricing" id="pricing">
+										<p class="cost-text">
+											After your free credits are over you can always get more from your Dashboard
+											<br>
+											Pricing : 1 Rupee per Question
+										</p>
+									</div>
+
+								</li>
+
+							</ul> <!-- End Option List -->
+
+						</div>
+					</div> <!-- END TEXT BLOCK -->
+
+
+					<!-- IMAGE BLOCK -->
+					<div class="col-md-5 col-lg-6 m-top">
+						<div class="content-8-img right-column wow fadeInRight" data-wow-delay="0.4s">
+							<img class="img-fluid" src="{% static 'landing/images/banner-2.jpg' %}" style="width:100%;"
+								alt="content-image">
+						</div>
+					</div>
+
+
+				</div> <!-- End row -->
+			</div> <!-- End container -->
+		</section> <!-- END CONTENT-8 -->
+
+
+
+
+
+		<section id="hero-3" class="bg-scroll hero-section division">
+			<div id="about" class="container white-color">
+				<div class="row d-flex align-items-center">
+
+
+
+					<!-- TEXT BLOCK -->
+					<div class="col-md-7 col-lg-6" id="about">
+						<div class="txt-block right-column pc-35 mb-40 wow fadeInLeft" data-wow-delay="0.4s">
+
+							<!-- Title -->
+							<h3 class="h3-sm">About Edu Learning</h3>
+
+
+							<p class="p-md" style="font-size:25px;">
+								At Edu Learning, we come together as an efficient and educated community to fulfill the need
+								for affordable and quality education to our nation. We are committed to providing
+								quality content to our clients. We enjoy a good reputation for quality among ed-tech
+								giants. An open and rewarding environment for our people is what makes company an ideal
+								platform to work.
+							</p>
+							<!-- <p class="p-md" style="font-size:20px;">
+								Your account is only accesible by you !
+							</p> -->
+
+
+
+						</div>
+					</div> <!-- END TEXT BLOCK -->
+
+
+					<!-- HERO IMAGE -->
+					<div class="col-lg-5 col-xl-6">
+						<div class="hero-3-img wow fadeInLeft" data-wow-duration="2.5s" data-wow-delay="0.4s">
+							<img class="img-fluid" src="{% static 'landing/images/hero-3-img.png' %}" alt="hero-image">
+						</div>
+					</div>
+				</div> <!-- End row -->
+			</div> <!-- End container -->
+			<!-- SECTION OVERLAY -->
+			<div class="bg-fixed white-overlay-bottom"></div>
+		</section> <!-- END HERO-3 -->
+		<section id="contact" class="contact">
+			<div class="container">
+				<div class="section-title">
+					<h2>Contact</h2>
+					<p>Connect with us!</p>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="info-box">
+									<i class="fas fa-map"></i>
+									<h3>Our Address</h3>
+									<p>A108 NIT Jalandhar, Punjab, India</p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="info-box mt-4">
+									<i class="fas fa-envelope"></i>
+									<h3>Email Us</h3>
+									<p>
+									<p><a href="mailto:office@edulearning.com">office@edulearning.com</a><br>
+										<a href="mailto:office@edulearning.com">office@edulearning.com</a>
+									</p>
+								</div>
+
+							</div>
+							<div class="col-md-6">
+								<div class="info-box mt-4">
+									<i class='fas fa-phone'></i>
+									<h3>Call Us</h3>
+									<p><a href="tel:+918847423837">+918847423837</a><br><a
+											href="tel:+919724501389">+919724501389</a></p>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Contact Section -->
+		</main>
+		<!-- End #main -->
+
+
+		<!-- FOOTER-3
+			============================================= -->
+		<footer id="footer-3" class="footer division">
+			<!-- ======= Footer ======= -->
+			<footer id="footer">
+				<div class="footer-top">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-4 col-md-6 footer-contact">
+								<h3>Edu Learning<span>.</span></h3>
+								<p>
+									NIT Jalandhar <br />
+									Punjab<br>
+									India <br><br>
+									<strong>Phone : </strong> <a href="tel:+918847423837" style="color:white;">
+										+918847423837</a><br>
+									<strong>Email : </strong><a href="mailto:office@edulearning.com"
+										style="color:white;"> office@edulearning.com</a><br>
+								</p>
+							</div>
+
+
+
+							<div class="col-lg-4 col-md-6 footer-links">
+								<h4>Links</h4>
+								<div class="item_f1">
+									<!-- <a href="terms_of_use.html">Copyright Policy</a> -->
+
+
+								</div>
+								<ul>
+									<li>
+										<i class="fa fa-chevron-right"></i>
+										<a href="{% url 'tnc' %}">Terms and Conditions</a>
+
+									</li>
+									<li>
+										<i class="fa fa-chevron-right"></i>
+										<a href="{% url 'sitemap' %}">Sitemap</a>
+									</li>
+									<li>
+										<i class="fa fa-chevron-right"></i>
+										<a href="{% url 'privacy' %}">Privacy Policy</a>
+									</li>
+
+								</ul>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+
+				<div class="container d-md-flex py-4">
+					<div class="mr-md-auto text-center text-md-left">
+						<div class="copyright">
+							&copy; Copyright <strong><span>Edu Learning</span></strong>. All Rights Reserved
+						</div>
+						<!-- <div class="credits">
+					Designed by
+					<a href="#">#</a>
+				</div> -->
+					</div>
+					<div class="social-links text-center text-md-right pt-3 pt-md-0">
+						<a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+						<a href="https://m.facebook.com/Rancike8050/?tsid=0.23084649485403097&source=result"
+							class="facebook"><i class="fab fa-facebook-f"></i></a>
+						<a href="https://instagram.com/company?igshid=1k8qz2repq5hn" class="instagram"><i
+								class="fab fa-instagram"></i></a>
+						<a href="#" class="google-plus"><i class="fab fa-slack-hash"></i></a>
+						<a href="https://www.linkedin.com/company/company-online-learning" class="linkedin"><i
+								class="fab fa-linkedin-in"></i></a>
+					</div>
+				</div>
+			</footer>
+			<!-- End Footer -->
+			<!-- End container -->
+		</footer> <!-- END FOOTER-3 -->
+
+	</div> <!-- END PAGE CONTENT -->
+
+	<!-- EXTERNAL SCRIPTS
+		============================================= -->
+	<script src="{% static 'landing/js/jquery-3.4.1.min.js' %}"></script>
+	<script src="{% static 'landing/js/bootstrap.min.js' %}"></script>
+	<script async src="{% static 'landing/js/jquery.validate.min.js' %}"></script>
+	<!-- <script async src="{% static 'landing/js/wow.js' %}"></script> -->
+
+	<!-- Custom Script -->
+	<script async src="{% static 'landing/js/custom.js' %}"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+.app-section {
+  background: linear-gradient(
+      to right,
+      rgba(39, 70, 133, 0.8) 0%,
+      rgba(61, 179, 197, 0.8) 100%
+    ),
+    url(../img/appback.jpg);
+  position: relative;
+}
+
+.app-section .wave {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  bottom: -150px;
+}
+
+@media screen and (max-width: 992px) {
+  .app-section .wave {
+    bottom: -180px;
+  }
+}
+
+.app-section .wave svg {
+  width: 100%;
+}
+
+.app-section,
+.app-section > .container > .row {
+  height: 100vh;
+  min-height: 800px;
+  padding-top: 0px;
+}
+
+.app-section.inner-page {
+  height: 60vh;
+  min-height: 0;
+  padding: 0px;
+}
+
+.app-section.inner-page .app-text {
+  transform: translateY(-150px);
+  margin-top: -120px;
+}
+
+@media screen and (max-width: 992px) {
+  .app-section.inner-page .app-text {
+    margin-top: -80px;
+  }
+}
+
+.app-section h1 {
+  font-size: 3.5rem;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 992px) {
+  .app-section h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .app-section .app-text-image {
+    margin-top: 4rem;
+  }
+}
+
+.app-section p {
+  font-size: 18px;
+  color: #fff;
+}
+
+.app-section .iphone-wrap {
+  position: relative;
+}
+
+@media screen and (max-width: 992px) {
+  .app-section .iphone-wrap {
+    text-align: center;
+  }
+}
+
+.app-section .iphone-wrap .phone-2,
+.app-section .iphone-wrap .phone-1 {
+  position: absolute;
+  top: -50%;
+  overflow: hidden;
+  left: 0;
+  box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
+}
+
+@media screen and (max-width: 992px) {
+  .app-section .iphone-wrap .phone-2,
+  .app-section .iphone-wrap .phone-1 {
+    position: relative;
+    top: 0;
+    max-width: 100%;
+  }
+}
+
+.app-section .iphone-wrap .phone-2,
+.app-section .iphone-wrap .phone-1 {
+  width: 250px;
+}
+
+@media screen and (max-width: 992px) {
+  .app-section .iphone-wrap .phone-1 {
+    margin-left: -150px;
+  }
+}
+
+.app-section .iphone-wrap .phone-2 {
+  margin-top: 50px;
+  margin-left: 100px;
+  width: 250px;
+}
+
+@media screen and (max-width: 992px) {
+  .app-section .iphone-wrap .phone-2 {
+    width: 250px;
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 100px;
+  }
+}
+
+.counts {
+  background: linear-gradient(
+    90deg,
+    rgba(36, 63, 120, 1) 0%,
+    rgba(58, 168, 185, 1) 100%
+  );
+}
+.counts .count-box {
+  background-color: #fff;
+}
